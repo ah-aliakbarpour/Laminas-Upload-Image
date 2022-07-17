@@ -1,0 +1,29 @@
+<?php
+
+/**
+ * @var $form \Image\Form\ImageForm
+ */
+
+$this->headTitle('Add Image');
+
+$form->prepare();
+
+?>
+
+<h1>Add Image</h1>
+
+<hr>
+
+<?= $this->form()->openTag($form); ?>
+
+
+<?= $this->formLabel($form->get('image')); ?>
+<br>
+<?= $this->formFile($form->get('image')); ?>
+<?= $this->formElementErrors($form->get('image')); ?>
+
+<br><br>
+
+<?= $this->formElement($form->get('submit')); ?>
+
+<?= $this->form()->closeTag() ?>
