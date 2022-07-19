@@ -10,6 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Image
 {
+    const IMAGE_DIR = 'images/';
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -70,5 +72,10 @@ class Image
     public function setUpdatedAt($updatedAt): void
     {
         $this->updatedAt = $updatedAt;
+    }
+
+    public function imagePath(): string
+    {
+        return self::IMAGE_DIR . $this->name;
     }
 }

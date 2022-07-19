@@ -6,6 +6,10 @@
 
 $this->headTitle('Add Image');
 
+
+$submit = $form->get('submit');
+$submit->setAttribute('class', 'btn btn-primary');
+
 $form->prepare();
 
 ?>
@@ -16,14 +20,15 @@ $form->prepare();
 
 <?= $this->form()->openTag($form); ?>
 
-
-<?= $this->formLabel($form->get('image')); ?>
+<div class="form-group">
+    <?= $this->formLabel($form->get('image')); ?>
+    <br>
+    <?= $this->formFile($form->get('image')); ?>
+    <?= $this->formElementErrors($form->get('image')); ?>
+</div>
 <br>
-<?= $this->formFile($form->get('image')); ?>
-<?= $this->formElementErrors($form->get('image')); ?>
-
-<br><br>
-
-<?= $this->formElement($form->get('submit')); ?>
+<div class="form-group">
+    <?= $this->formElement($submit); ?>
+</div>
 
 <?= $this->form()->closeTag() ?>

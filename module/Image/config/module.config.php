@@ -3,7 +3,10 @@
 namespace Image;
 
 use Doctrine\ORM\Mapping\Driver\AnnotationDriver;
+use Image\Controller\Factory\ImageControllerFactory;
 use Image\Controller\ImageController;
+use Image\Service\Factory\ImageManagerFactory;
+use Image\Service\ImageManager;
 use Laminas\Router\Http\Literal;
 use Laminas\Router\Http\Segment;
 use Laminas\ServiceManager\Factory\InvokableFactory;
@@ -73,7 +76,12 @@ return [
     ],
     'controllers' => [
         'factories' => [
-            ImageController::class => InvokableFactory::class,
+            ImageController::class => ImageControllerFactory::class,
+        ],
+    ],
+    'service_manager' => [
+        'factories' => [
+            ImageManager::class => ImageManagerFactory::class,
         ],
     ],
     'doctrine' => [

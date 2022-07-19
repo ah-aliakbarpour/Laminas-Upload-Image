@@ -1,0 +1,21 @@
+<?php
+
+/**
+ * @var $images
+ */
+
+$this->headTitle('Images');
+
+?>
+
+<h1>Images</h1>
+<p>
+    <a href="<?= $this->url('image/add') ?>">Add new Image</a>
+</p>
+
+<table class="table">
+    <?php foreach ($images as $image) : ?>
+        <tr>
+            <td><img src="<?= $image->imagePath() ?>" alt="image"></td>
+    <?php endforeach; ?>
+</table>
